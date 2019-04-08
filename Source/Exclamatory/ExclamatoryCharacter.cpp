@@ -43,6 +43,12 @@ AExclamatoryCharacter::AExclamatoryCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	// Create a spring arm for archer's weapon
+	ArcherSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("ArcherSpringArm"));
+	ArcherSpringArm->SetupAttachment(RootComponent);
+	ArcherSpringArm->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
+	ArcherSpringArm->bUsePawnControlRotation = true; // Rotate the arm based on the controller
+
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
