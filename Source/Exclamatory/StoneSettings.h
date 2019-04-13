@@ -16,6 +16,6 @@ class EXCLAMATORY_API AStoneSettings : public AWorldSettings
 	
 
 public:
-	UPROPERTY(EditAnywhere)
-	static TTuple<float,float> ArcherStoneRotateSpeedLimitation;
+	//UPROPERTY(EditAnywhere)
+	//TTuple<float,float> ArcherStoneRotateSpeedLimitation;
 };

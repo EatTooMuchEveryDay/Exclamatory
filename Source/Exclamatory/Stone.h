@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "StoneType.h"
-#include "StoneSettings.h"
+//#include "StoneSettings.h"
 #include "Stone.generated.h"
 
 UCLASS()
