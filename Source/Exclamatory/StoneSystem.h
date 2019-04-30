@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "Stone.h"
 #include "StoneType.h"
+#include "Stone/ArcherStone.h"
+#include "Stone/SaberStone.h"
 #include "StoneSystem.generated.h"
 
 
@@ -20,7 +22,7 @@ public:
 
 private:
 	// current stone type
-	StoneType stoneType=StoneType::None;
+	StoneType stoneType = StoneType::Archer;//None;
 	// stone num of current stone type
 	int stoneNum = 20;
 	
@@ -55,4 +57,7 @@ private:
 
 	// Spawn stones
 	void SpawnStones();
+
+	// Spawn a stone according to current stone type
+	AStone* SpawnStone(StoneType targetType);
 };

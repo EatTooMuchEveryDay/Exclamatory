@@ -10,11 +10,18 @@ AStone::AStone()
 
 }
 
+AStone::~AStone() {
+	if (GEngine) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("~Stone()")));
+	}
+}
+
 // Called when the game starts or when spawned
 void AStone::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	GenerateMesh();
 }
 
 // Called every frame
@@ -24,8 +31,8 @@ void AStone::Tick(float DeltaTime)
 
 }
 
-void AStone::ChangeType(StoneType targetType) {
-	ChangeStoneShape(targetType);
-
-
-}
+//void AStone::ChangeType(StoneType targetType) {
+//	ChangeStoneShape(targetType);
+//
+//
+//}

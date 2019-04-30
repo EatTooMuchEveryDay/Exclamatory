@@ -17,25 +17,33 @@ public:
 	// Sets default values for this actor's properties
 	AStone();
 
+	~AStone();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
 	float rotateSpeed = 1;
 	float radius = 1;
+
+	// mesh of stone
+	UPROPERTY(Category = "Shape", BlueprintReadWrite, EditAnywhere)
+		UStaticMeshComponent* StoneMesh;
 
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Update the location of stone, called by stoneSystem
-	void UpdateLocation(FVector );
+	virtual void UpdateLocation(FVector center, FVector forward, float time) = 0;
 
-	// change type
-	void ChangeType(StoneType targetType);
+	// deal with the shape of the stone
+	virtual void GenerateMesh() = 0;
 
-	// change the shape of stone
-	UFUNCTION(BlueprintImplementableEvent)
-		void ChangeStoneShape(StoneType targetType);
+	//// change type
+	//void ChangeType(StoneType targetType);
+
+	//// change the shape of stone
+	//UFUNCTION(BlueprintImplementableEvent)
+	//void ChangeStoneShape(StoneType targetType);
 };
